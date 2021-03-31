@@ -1,0 +1,15 @@
+{
+    "seller": {
+        "name": "这是测试数据",
+        "description": "保安日记",
+        "supports": [
+            {
+                "type": 0,
+                "description": "今天第21次小区巡逻，无异常，一切安全，over。"
+            }, {
+                "type": 1,
+                "description": "今天第23次小区巡逻，无异常，一切安全，over。"
+            }
+        ]
+    }
+}
