@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    HelloWorld markDown
+    HelloWorld
     <!-- <article class="context" v-html="compiledMarkdown"></article> 不安全，xss -->
     <vue-markdown class="article" v-highlight :source="content"></vue-markdown>
   </div>
@@ -34,7 +34,7 @@ export default {
         console.log(err);
       });
 
-    this.$http.get("Blogs/test.md").then((response) => {
+    this.$http.get("Blogs/eventTracking.md").then((response) => {
       debugger;
       console.log(response.data);
       this.content = response.data;

@@ -1,5 +1,12 @@
-# <center>**埋点方案**</center>
+# <center>**前端监控——埋点**</center>
 <article align="left" padding="0 12px">
+
+前端监控可以分为三类：
+* 数据监控：用户行为数据
+* 性能监控：首屏加载时间、白屏时间、http请求和响应时间
+* 异常监控：前端脚本执行报错
+
+本文主要介绍数据监控
 
 ## 一、什么是埋点
 
@@ -7,7 +14,7 @@
 
 埋点是为了满足快捷、高效、丰富的数据应用而做的用户行为过程及结果记录。数据埋点是一种常用的数据采集的方法。埋点是数据的来源，采集的数据可以分析网站/APP的使用情况，用户行为习惯等，是建立用户画像、用户行为路径等数据产品的基础。
 
-![这是图片](./images/test-event-tracking.png 'pic')
+![这是图片](../Blogs/images/test-event-tracking.png 'pic')
 
 ## 二、埋点的作用
 
@@ -32,13 +39,13 @@
 ### 5、分析结果呈现
 统计结果的展示
 
-![这是图片](./images/test-event-tracking-flow.png 'pic')
+![这是图片](../Blogs/images/test-event-tracking-flow.png 'pic')
 
 ## 四、如何设计数据埋点方案
 ### 1、埋点方式的选择
 **从前后端埋点可分为：客户端埋点和服务端埋点。**
 
-![这是图片](./images/test-event-tracking-shot.png 'pic')
+![这是图片](../Blogs/images/test-event-tracking-shot.png 'pic')
 
 **从埋点方式还可分为：代码埋点、可视化埋点、全埋点。**
 
