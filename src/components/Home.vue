@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    HelloWorld
+    HelloWorld this
     <!-- <article class="context" v-html="compiledMarkdown"></article> 不安全，xss -->
     <vue-markdown class="article" v-highlight :source="content"></vue-markdown>
   </div>
@@ -10,7 +10,7 @@
 import marked from "marked";
 import VueMarkdown from "vue-markdown";
 export default {
-  name: "HelloWorld",
+  name: "Home",
   props: {
     msg: String,
   },
