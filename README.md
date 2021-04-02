@@ -1,5 +1,7 @@
 # myblog
 
+## 博客地址：https://cow-rong.github.io/blogs
+
 ## Project setup
 ```
 npm install
