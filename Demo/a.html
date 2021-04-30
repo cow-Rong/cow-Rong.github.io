@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    test
+    <div style="height: 900px;width: 100px; background-color: green"></div>
+    <a href="javascript:;">不动</a>
+    <a href="javascript:void(0);">不动</a>
+    <a href="javascript:console.log('!!!');">不动!!!</a>
+    <a href="#" onclick="javascript:return false;">不动</a>
+    <a href="#" onclick="javascript:console.log('!'); return false;">不动!</a> 
+    <a href="#" onclick="javascript:console.log('!');">动!</a> 
+    <a href="#">动</a>
+    <a href="#" onclick="javascript:void(0);">动</a>
+    <a href="#" onclick="javascript:;">动</a>
+    <a href="#" onclick="javascript:return true;">动</a>
+</body>
+</html>

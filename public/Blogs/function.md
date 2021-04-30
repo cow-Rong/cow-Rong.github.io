@@ -1,4 +1,5 @@
 ## <center>立即执行函数</center>
+<article align="left" padding="0 12px">
 
 ### 立即执行函数：声明并马上调用这个匿名函数
 ```
@@ -142,6 +143,6 @@ console.log(result());//4
 ```
 立即执行函数的返回值（函数）赋给了一个变量result，执行result(),返回的函数被执行，返回res的值（这个值事先被计算并被存储在立即执行函数的闭包中）;
 
-
+</article>
 
 

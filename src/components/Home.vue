@@ -34,7 +34,7 @@ export default {
         console.log(err);
       });
 
-    this.$http.get("Blogs/eventTracking.md").then((response) => {
+    this.$http.get("Blogs/function.md").then((response) => {
       debugger;
       console.log(response.data);
       this.content = response.data;
