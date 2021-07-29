@@ -21,10 +21,11 @@
 
 * **更新阶段**
 组件的重新render：
-1、setState引起的state更新
-2、父组件重新引起的props更新
->*props：*
-    **componentWillReceiveProps(nextProps,nextState)（弃）**
+1、父组件重新引起的props更新
+2、setState引起的state更新
+
+*1、props：*
+>   **componentWillReceiveProps(nextProps,nextState)（弃）**
         这个生命周期主要为我们提供对 **props 发生改变的监听**，如果你需要在 props 发生改变后，相应改变组件的一些 state。在这个方法中**改变 state 不会二次渲染**，而是直接合并 state**:**
         每次子组件接收到新的props，都会重新渲染一次，除非你做了处理来阻止（比如使用：shouldComponentUpdate），但是你可以在这次渲染前，根据新的props更新state，更新state也会触发一次重新渲染，但react不会这么傻，所以只会渲染一次，不会二次渲染。
 
@@ -68,13 +69,15 @@ b.在componentWillReceiveProps方法中，将props转换成自己的state
 
 > **render**
         执行 render 函数。(this.props 和 this.state发生了更新)
-    **componentDidUpdate(prevProps, prevState)** 
+
+> **componentDidUpdate(prevProps, prevState)** 
         在此时已经完成渲染，Dom 已经发生变化，State 已经发生更新，prevProps、prevState 均为上一个状态的值。
-**state（具体同上）**
-    1. shouldComponentUpdate
-    2. componentWillUpdate（**弃**）
-    3. render
-    4. componentDidUpdate
+
+*2、state（具体同上）：*
+>shouldComponentUpdate
+ componentWillUpdate（**弃**）
+ render
+ componentDidUpdate
 
 * **卸载阶段**
 >**componentWillUnmount**
@@ -146,78 +149,7 @@ class ScrollingList extends React.Component {
   }
 }
 ```
-详细场景：
-
-```
-
-<script type = 'text/babel'>
- 
-class SnapshotSample extends React.Component {
-     constructor(props) {
-        super(props);
-        this.state = {
-          messages: [],//用于保存子div
-        }
-     }
- 
-     handleMessage () {//用于增加msg
-       this.setState( pre => ({
-         messages: [`msg: ${ pre.messages.length }`, ...pre.messages],
-       }))
-     }
-     componentDidMount () {
-        
-       for (let i = 0; i < 20; i++) this.handleMessage();//初始化20条
-       this.timeID = window.setInterval( () => {//设置定时器
-            if (this.state.messages.length > 200 ) {//大于200条，终止
-              window.clearInterval(this.timeID);
-              return ;
-            } else {
-              this.handleMessage();
-            }
-       }, 1000)
-     }
-     componentWillUnmount () {//清除定时器
-       window.clearInterval(this.timeID);
-     }
-     getSnapshotBeforeUpdate () {//很关键的，我们获取当前rootNode的scrollHeight，传到componentDidUpdate 的参数perScrollHeight
-       return this.rootNode.scrollHeight;
-     }
-     componentDidUpdate (perProps, perState, perScrollHeight) {
-       const curScrollTop= this.rootNode.scrollTop;
-       if (curScrollTop < 5) return ;
-       this.rootNode.scrollTop = curScrollTop + (this.rootNode.scrollHeight  - perScrollHeight);
-       //加上增加的div高度，就相当于不动
-     }
-     render () {
-      
-       return (
-           <div className = 'wrap'  ref = { node => (  this.rootNode = node)} >
-               { this.state.messages.map( msg => (
-                 <div>{ msg } </div>
-               ))}
-          </div>
-       );
-     }
-}
-ReactDOM.render(
-  <SnapshotSample />,
-  document.getElementById("root")
-)
-</script>
-<style type="text/css">
-.wrap{
-    height: 100px;
-    width :200px;
-    padding: 1px solid #eee;
-    overflow:auto;
-}
-</style>
-
-```
-
-代替componentWillUpdate。
-常见的 componentWillUpdate 的用例是在组件更新前，读取当前某个 DOM 元素的状态，并在 componentDidUpdate 中进行相应的处理。
+用来代替componentWillUpdate，在组件更新前，读取当前某个 DOM 元素的状态，并进行相应的处理。
 这两者的区别在于：
 
 在 React 开启异步渲染模式后，在 render 阶段读取到的 DOM 元素状态并不总是和 commit 阶段相同，这就导致在
