@@ -98,8 +98,5 @@ pakages-basicprojfive
 
 当shadowdom外面元素被添加到shadowdom里面的时候，外部那个元素就被移进去了，外部就没有了，在shadow里面了
 
-
-
-
-
+https://developer.mozilla.org/zh-CN/docs/Web/Web_Components/Using_shadow_DOM
 </article>
