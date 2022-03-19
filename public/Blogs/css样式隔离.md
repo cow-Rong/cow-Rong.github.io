@@ -2,15 +2,21 @@
 <article align="left" padding="0 12px">
 
 解决css样式隔离的集中方法
-* css BEM
 * css modules
 * css-in-js
 * shadow dom
 
-#### css BEM
+### css BEM 命名规则
 >BEM, 即Block__Element--Modifier(.块__元素--修饰符{})
+toggle__details--active的类名
+这个元素的名称是details, 位置在toggle组件里, 状态为active
 
-#### css modules
+### CSS预编译器:Sass、Less、Stylus
+![](2022-03-07-11-29-15.png)
+
+### （一）css modules
+**CSS modules是使用独特的class名，通过文件名、路径生产独特的hash前缀来隔离各个模块，这个hash是构建工具比如webpack的css-loader插件去生成**
+
 加**局部作用域**和**模块依赖**
 http://www.ruanyifeng.com/blog/2016/06/css_modules.html
 
@@ -59,7 +65,14 @@ css Module中：
 }
 ```
 
-#### css-in-js
+PostCSS 是一种 JavaScript 工具，可将您的 CSS 代码转换为抽象语法树 (AST)，然后提供 API（应用程序编程接口）用于使用 JavaScript 插件对其进行分析和修改。
+既不是后处理器也不是预处理器，它只是一个将特殊的PostCSS插件语法转换为 Vanilla CSS 的转译器。
+![](2022-03-07-11-16-53.png)
+
+![](2022-03-07-11-24-46.png)
+
+### （二）css-in-js
+**CSS in JS中的样式是JS 运行时解析，然后挂载到head**
 > 例如：styled-components、Emotion、polished
 
 https://www.ruanyifeng.com/blog/2017/04/css_in_js.html
@@ -87,8 +100,9 @@ ReactDOM.render(
   document.getElementById('example')
 );
 ```
-许多第三方库来加强react的css操作————统称为css in js
 
+>许多第三方库来加强css操作————统称为css in js
+与预处理器和postcss区别：
 CSS in JS 使用 JavaScript 的语法，是 JavaScript 脚本的一部分，不用从头学习一套专用的 API，也不会多一道编译步骤。
 
 API接口设计：CSS prop 与 组件样式
@@ -189,7 +203,7 @@ render(<Button>This my button component.</Button>)
 * css props写法可以直接将样式写在组建中，而styled写法是先将组件封装成一个新的组件后再使用。
 
 styled-components 与 emotion 的styled写法一样，需要将组件封装成一个新的组件后再使用。
-
+https://zhuanlan.zhihu.com/p/350324735
 **五种 CSS 设计模式**
 * OOCSS（Object Oriented CSS）
 * SMACSS（Scalable and Modular Architecture for CSS）
@@ -240,9 +254,29 @@ CSSWG 的 draft，CSS 目前支持计算的数学表达式主要包含五大类�
 * 三角函数：sin(), cos(), tan(), asin(), acos(), atan(), atan2()
 * 指数函数：pow(), sqrt(), hypot(), log(), exp()
 
+**css module && css in js对比：**
+css in js:
+优点：
+* 可以用JS的逻辑，比如函数，比较灵活，复用性强
+* 小项目中比较方便
+* 语义化更加友好
+缺点：
+* 样式是和JS文件打包在一起，所以会拖慢JS文件加载时间
+* 没有单独CSS文件所以无法缓存
+* 大多数的库跟插件样式都不是CSS in JS 开发的，业务开发时代码可CV性差
+* 不能使用SCSS, Less等CSS 语言（根据库情况不同，比如styled-components有支持）
 
-#### shadow dom
+css modules:
+优点：
+* 可以用SCSS， Less等CSS语言
+* 样式代码与JS代码分离，代码会相对简洁
+* 只是在CSS基础上加入了局部作用域跟模块以来，代码相对规范
+* 规则简单易学
+缺点：
+* 全局样式需要用:global 的非原生语法去定义
+* 需要引入样式
+
+### （三）shadow dom
 参考另一篇shadowdom笔记
-
 
 <article>
