@@ -55,6 +55,4 @@ https://medium.com/@gethylgeorge/how-virtual-dom-and-diffing-works-in-react-6fc8
 >Virtual-DOM 所做的是，它试图最小化这两个阶段，从而为大型复杂应用程序获得更好的性能。
 
 
-
-
 </article>
