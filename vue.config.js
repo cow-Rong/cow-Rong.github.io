@@ -3,7 +3,7 @@ const UglifyPlugin = require('uglifyjs-webpack-plugin')
 const CompressionPlugin = require("compression-webpack-plugin")
 
 module.exports = {
-    publicPath: './', // 基本路径
+    publicPath: '/', // 基本路径
     outputDir: 'Blog', // 输出文件目录
     // indexPath: '../index.html',
     filenameHashing: true, // 生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存
