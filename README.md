@@ -1,6 +1,6 @@
 # myblog
 
-## 博客地址：https://cow-rong.github.io/blogs
+## 博客地址：https://cow-rong.github.io/Blog
 
 ## Project setup
 ```
