@@ -143,20 +143,20 @@ import { css, jsx } from '@emotion/core'
 
 const color = 'white'
 
-// render(
-  // <div
-  //   css={{
-  //     padding: '32px',
-  //     backgroundColor: 'hotpink',
-  //     fontSize: '24px',
-  //     borderRadius: '4px',
-  //     '&:hover': {
-  //       backgroundColor: color
-  //     }
-  //   }}
-  // >
-  //   Hover to change color.
-  // </div>
+render(
+  <div
+    css={{
+      padding: '32px',
+      backgroundColor: 'hotpink',
+      fontSize: '24px',
+      borderRadius: '4px',
+      '&:hover': {
+        backgroundColor: color
+      }
+    }}
+  >
+    Hover to change color.
+  </div>
 )
 ```
 
@@ -185,17 +185,17 @@ import styled from '@emotion/styled'
 
 const color = 'white'
 
-// const Button = styled.div(
-//     {
-//         padding: '32px',
-//         backgroundColor: 'hotpink',
-//         fontSize: '24px',
-//         borderRadius: '4px',
-//         '&:hover': {
-//           backgroundColor: color
-//         }
-//     }
-// )
+const Button = styled.div(
+    {
+        padding: '32px',
+        backgroundColor: 'hotpink',
+        fontSize: '24px',
+        borderRadius: '4px',
+        '&:hover': {
+          backgroundColor: color
+        }
+    }
+)
 
 render(<Button>This my button component.</Button>)
 ```
